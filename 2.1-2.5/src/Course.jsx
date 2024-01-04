@@ -2,12 +2,12 @@ import Header from './Header.jsx'
 import Content from './Content.jsx'
 import Total from './Total.jsx'
 
-const Course = ({courses}) => {
+const Course = ({course}) => {
     return (
         <div>
-            <Header header={courses.name}/>
-            <Content parts={courses.parts}/>
-            <Total total={courses.parts}/>
+            <Header header={course.name}/>
+            <Content parts={course.parts}/>
+            <Total total={course.parts}/>
         </div>
     )
 }
