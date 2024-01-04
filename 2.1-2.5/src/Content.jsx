@@ -1,10 +1,10 @@
 import Part from './Part.jsx'
 
-const Content = ({content}) => {
+const Content = ({parts}) => {
     return (
         <>
-            {content.map((part) => 
-                <Part key={part.id} 
+            {parts.map((part) => 
+                <Part key={part.id} //Required by React
                       partName={part.name} 
                       partExercises={part.exercises}/>
                 )}
