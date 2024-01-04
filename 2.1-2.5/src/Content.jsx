@@ -5,9 +5,9 @@ const Content = ({parts}) => {
         <>
             {parts.map((part) => 
                 <Part key={part.id} //Required by React
-                      partName={part.name} 
-                      partExercises={part.exercises}/>
-                )}
+                partName={part.name} 
+                partExercises={part.exercises}/>
+            )}
         </>
     )
 }
