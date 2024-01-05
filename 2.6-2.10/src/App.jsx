@@ -2,14 +2,16 @@ import { useState } from 'react'
 
 const App = () => {
   const [persons, setPersons] = useState([
-    { name: 'Arto Hellas' }
+    { name: 'Arto Hellas', number: "555-555-5555"}
   ]) 
   const [newName, setNewName] = useState('Insert a name')
+  const [newNumber, setNewNumber] = useState('Insert a phone number')
 
   const addPerson = (event) => {
     event.preventDefault() //Don't refresh the page
     const personObj = {
       name: newName,
+      number: newNumber,
     }
     //If personObj.name is the same as any person.name
     //Alert user and prevent submit
@@ -18,8 +20,12 @@ const App = () => {
     : setPersons(persons.concat(personObj)) && setNewName('')
   }
 
-  const handleChange = (event) => {
+  const handleName = (event) => {
     setNewName(event.target.value)
+  }
+
+  const handleNumber = (event) => {
+    setNewNumber(event.target.value)
   }
 
   return (
@@ -27,8 +33,9 @@ const App = () => {
       <h2>Phonebook</h2>
       <form>
         <div>
-          name: <input value={newName} onChange={handleChange}
-          />
+          Name: <input value={newName} onChange={handleName} />
+          <br />
+          Number: <input value={newNumber} onChange={handleNumber} />
         </div>
         <div>
           <button type="submit" 
@@ -36,10 +43,9 @@ const App = () => {
           Add
           </button>
         </div>
-        <div>debug: {newName}</div>
       </form>
       <h2>Numbers</h2>
-      {persons.map(person => <li key={person.name}>{person.name}</li>)}
+      {persons.map(person => <li key={person.name}>{person.name} @ {person.number}</li>)}
     </div>
   )
 }
