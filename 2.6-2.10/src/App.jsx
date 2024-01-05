@@ -11,8 +11,11 @@ const App = () => {
     const personObj = {
       name: newName,
     }
-    setPersons(persons.concat(personObj))
-    setNewName('')
+    //If personObj.name is the same as any person.name
+    //Alert user and prevent submit
+    persons.some(person => person.name === personObj.name) 
+    ? alert(`${personObj.name} is already in the phonebook.`)
+    : setPersons(persons.concat(personObj)) && setNewName('')
   }
 
   const handleChange = (event) => {
